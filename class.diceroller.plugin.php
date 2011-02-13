@@ -14,8 +14,11 @@ class DiceRoller implements Gdn_IPlugin {
     	$FormPostValues = $Sender->EventArguments['FormPostValues'];
         $FormPostValues['Body'] = $FormPostValues['Body'] . '<div>More</div>';
         $Sender->EventArguments['FormPostValues'] = $FormPostValues;
-    
-   
+        $Sender->EventArguments['FormPostValues']['Body'] = "Blah blah blah";
+    }
+
+    public function DiscussionModel_BeforeSaveDiscussion_Handler(&$Sender) {
+        $Sender->EventArguments['FormPostValues']['Body'] = "Blah blah blah";
     }
 }
 
