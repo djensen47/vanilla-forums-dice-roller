@@ -10,7 +10,7 @@ $PluginInfo['DiceRoller'] = array(
 );
 
 class DiceRoller implements Gdn_IPlugin {
-    public function Base_BeforeSaveComment_Handler($Sender) {
+    public function CommentModel_BeforeSaveComment_Handler(&$Sender) {
     	$FormPostValues = $Sender->EventArguments['FormPostValues'];
         $FormPostValues['Body'] = $FormPostValues['Body'] . '<div>More</div>';
         $Sender->EventArguments['FormPostValues'] = $FormPostValues;
