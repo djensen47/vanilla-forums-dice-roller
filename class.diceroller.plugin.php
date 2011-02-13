@@ -11,10 +11,11 @@ $PluginInfo['DiceRoller'] = array(
 
 class DiceRoller implements Gdn_IPlugin {
     public function Base_BeforeSaveComment_Handler($Sender) {
-    	$Comment = GetValue('Comment', $Sender->EventArguments);
-    	$body = $Comment->Body;
-    	$body = $body . '<br/><br/>Dice Test';
-    	$Comment->Body = $body;
+    	$FormPostValues = $Sender->EventArguments['FormPostValues'];
+        $FormPostValues = $FormPostValue . '<div>More</div>';
+        $Sender->EventArguments['FormPostValues'] = $FormPostValues;
+    
+   
     }
 }
 
